@@ -3,6 +3,8 @@ from functools import partial
 from PyQt5.QtWidgets import (QGroupBox, QHBoxLayout, QPushButton, QVBoxLayout,
                              QWidget)
 
+from .train import Train
+
 
 class Window(QWidget):
     def __init__(self):
@@ -40,6 +42,7 @@ class Window(QWidget):
         self.layout.addWidget(group_box)
 
     def _executor(self, i):
-        func = []
+        _train = Train(self)
+        func = [getattr(_train, "show_img")]
         if i < len(func):
             func[i]()
