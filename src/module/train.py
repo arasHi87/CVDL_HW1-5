@@ -32,3 +32,31 @@ class Train:
         print(f"batch size: {self.batch_size}")
         print(f"learning rate: {self.learning_rate}")
         print("optimizer: SGD")
+    
+    def show_model(self):
+        input_shape = (32, 32, 3)
+        model = tf.keras.Sequential([
+            Conv2D(64, (3, 3), input_shape=input_shape, activation="relu", padding="same"),
+            Conv2D(64, (3, 3), activation="relu", padding="same"),
+            MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+            Conv2D(128, (3, 3), activation="relu", padding="same"),
+            Conv2D(128, (3, 3), activation="relu", padding="same"),
+            MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+            Conv2D(256, (3, 3), activation="relu", padding="same"),
+            Conv2D(256, (3, 3), activation="relu", padding="same"),
+            Conv2D(256, (3, 3), activation="relu", padding="same"),
+            MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            Conv2D(512, (3, 3), activation="relu", padding="same"),
+            MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+            Flatten(),
+            Dense(4096, activation="relu"),
+            Dense(4096, activation="relu"),
+            Dense(10, activation="softmax")
+        ])
+        model.summary()

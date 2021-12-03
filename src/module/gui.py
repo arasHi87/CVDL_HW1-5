@@ -43,6 +43,10 @@ class Window(QWidget):
 
     def _executor(self, i):
         _train = Train(self)
-        func = [getattr(_train, "show_img"), getattr(_train, "show_hyperparameters"),]
+        func = [
+            getattr(_train, "show_img"),
+            getattr(_train, "show_hyperparameters"),
+            getattr(_train, "show_model"),
+        ]
         if i < len(func):
             func[i]()
