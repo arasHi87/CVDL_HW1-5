@@ -47,6 +47,7 @@ class Window(QWidget):
             getattr(_train, "show_img"),
             getattr(_train, "show_hyperparameters"),
             getattr(_train, "show_model"),
+            getattr(_train, "show_accuracy"),
         ]
         if i < len(func):
             func[i]()

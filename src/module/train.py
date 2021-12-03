@@ -60,3 +60,8 @@ class Train:
             Dense(10, activation="softmax")
         ])
         model.summary()
+
+    def show_accuracy(self):
+        plt.imshow(plt.imread("data/accu.png"))
+        plt.show()
+        print("dsa")
