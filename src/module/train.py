@@ -26,3 +26,9 @@ class Train:
             plt.title(self.label[self.y_train[i][0].astype(int)])
             plt.imshow(self.x_train[i])
         plt.show()
+    
+    def show_hyperparameters(self):
+        print("hyperparameters:")
+        print(f"batch size: {self.batch_size}")
+        print(f"learning rate: {self.learning_rate}")
+        print("optimizer: SGD")
