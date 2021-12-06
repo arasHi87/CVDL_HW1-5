@@ -31,6 +31,7 @@ class Window(QWidget):
             "2. Show HyperParameter",
             "3. Show Model Struct",
             "4. Show Accuracy",
+            "6. Train",
         ]
         v_layout = QVBoxLayout()
         group_box = QGroupBox("VGG16 TEST")
@@ -48,6 +49,7 @@ class Window(QWidget):
             getattr(_train, "show_hyperparameters"),
             getattr(_train, "show_model"),
             getattr(_train, "show_accuracy"),
+            getattr(_train, "train"),
         ]
         if i < len(func):
             func[i]()
