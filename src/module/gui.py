@@ -23,6 +23,8 @@ class Window(QWidget):
         self.setWindowTitle("HW1-5")
         self.setGeometry(100, 100, self._width, self._height)
         self.init_btn()
+        self.spinbox = QSpinBox()
+        self.layout.addWidget(self.spinbox)
         self.show()
 
     def init_btn(self):
@@ -31,6 +33,7 @@ class Window(QWidget):
             "2. Show HyperParameter",
             "3. Show Model Struct",
             "4. Show Accuracy",
+            "5. Test",
             "6. Train",
         ]
         v_layout = QVBoxLayout()
@@ -49,7 +52,10 @@ class Window(QWidget):
             getattr(_train, "show_hyperparameters"),
             getattr(_train, "show_model"),
             getattr(_train, "show_accuracy"),
+            getattr(_train, "test"),
             getattr(_train, "train"),
         ]
-        if i < len(func):
+        if i == 4:
+            func[i](*[self.spinbox.value()])
+        else:
             func[i]()

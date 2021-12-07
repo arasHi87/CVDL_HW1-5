@@ -67,6 +67,19 @@ class Train:
         plt.show()
         print("dsa")
     
+    def test(self, val):
+        trained_model = tf.keras.models.load_model(self.checkpoint_path)
+        test = np.reshape(self.x_test[val], (1, 32, 32, 3))
+        result = trained_model.predict(test)
+        plt.figure("Test")
+        plt.subplot(2, 1, 1)
+        plt.imshow(self.x_test[val])
+        plt.title(self.label[self.y_test[val][0].astype(int)])
+        plt.axis("off")
+        plt.subplot(2, 1, 2)
+        plt.bar(self.label, result[0])
+        plt.show()
+    
     def train(self):
         x_train = self.x_train / 255.0
         x_test = self.x_test / 255.0
