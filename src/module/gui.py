@@ -1,6 +1,6 @@
 from functools import partial
 
-from PyQt5.QtWidgets import (QGroupBox, QHBoxLayout, QPushButton, QVBoxLayout,
+from PyQt5.QtWidgets import (QGroupBox, QHBoxLayout, QPushButton, QSpinBox, QVBoxLayout,
                              QWidget)
 
 from .train import Train
@@ -21,7 +21,7 @@ class Window(QWidget):
         self.layout = QHBoxLayout()
         self.setLayout(self.layout)
         self.setWindowTitle("HW1-5")
-        self.setGeometry(0, 0, self._width, self._height)
+        self.setGeometry(100, 100, self._width, self._height)
         self.init_btn()
         self.show()
 
